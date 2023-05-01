@@ -10,7 +10,7 @@ This project implements five (5) shell builtins (or shell-adjacent) commands in 
 	+ usage: help
 - [ ] source: read and execute command from a file
 	+ usage: source [filename]
-	given a file test.txt, type: source test.txt
+	+ example: given a file test.txt, type: source test.txt
 - [ ] undecided
 - [ ] undecided
 
