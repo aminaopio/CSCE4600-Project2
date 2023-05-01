@@ -6,8 +6,11 @@
 
 This project implements five (5) shell builtins (or shell-adjacent) commands in Go, and integrates them into the Go shell.:
 - [ ] sh
-- [ ] pwd
-- [ ] undecided
+- [ ] help: display the list of commands
+	+ usage: help
+- [ ] source: read and execute command from a file
+	+ usage: source [filename]
+	given a file test.txt, type: source test.txt
 - [ ] undecided
 - [ ] undecided
 

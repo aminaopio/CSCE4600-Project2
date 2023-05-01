@@ -1,0 +1,2 @@
+echo Hello! This is CSCE4600.
+pwd
