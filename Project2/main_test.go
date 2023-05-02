@@ -10,6 +10,7 @@ import (
 	"time"
 )
 
+
 func Test_runLoop(t *testing.T) {
 	t.Parallel()
 	exitCmd := strings.NewReader("exit\n")
