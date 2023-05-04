@@ -11,7 +11,8 @@ This project implements five (5) shell builtins (or shell-adjacent) commands in 
 - [ ] source: read and execute command from a file
 	+ usage: source [filename]
 	+ example: given a file test.txt, type: source test.txt
-- [ ] undecided
+- [ ] mkdir: create one or more directories
+	+ usage: mkdir [Directoryname]
 - [ ] undecided
 
  
