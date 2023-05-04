@@ -88,7 +88,7 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	case "help":
     	commands := map[string]string{
         "cd":    	"Change the current directory",
-        "envx":   	"List environment variables",
+        "env":   	"List environment variables",
         "pwd":	 	"Print current working directory",
 		"source":	"Read and execute commands from the filename argument",
 		"mkdir":	"Creates new directory",
