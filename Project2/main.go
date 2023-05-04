@@ -83,12 +83,15 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 			return fmt.Errorf("%w: expected one argument (file)")
 		}
 		return builtins.Source(args[0])
+	case "mkdir":
+		return builtins.MakeDirectory(args...)
 	case "help":
     	commands := map[string]string{
         "cd":    	"Change the current directory",
-        "env":   	"List environment variables",
+        "envx":   	"List environment variables",
         "pwd":	 	"Print current working directory",
-        "source":	"Read and execute commands from the filename argument",
+		"source":	"Read and execute commands from the filename argument",
+		"mkdir":	"Creates new directory",
         "exit":  	"Exit the shell",
         "help":  	"Display this help message",
         // Add additional commands and descriptions here.
