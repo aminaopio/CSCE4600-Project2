@@ -78,25 +78,35 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.ChangeDirectory(args...)
 	case "env":
 		return builtins.EnvironmentVariables(w, args...)
-    case "source":
+	case "source":
 		if len(args) != 1 {
 			return fmt.Errorf("%w: expected one argument (file)")
 		}
 		return builtins.Source(args[0])
 	case "mkdir":
 		return builtins.MakeDirectory(args...)
+	case "sh":
+		cmd := exec.Command("/bin/sh", args...)
+		cmd.Stdin = os.Stdin
+		cmd.Stdout = w
+		cmd.Stderr = w
+		if err := cmd.Run(); err != nil {
+			return fmt.Errorf("failed to execute default shell: %v", err)
+		}
+		return nil
 	case "help":
-    	commands := map[string]string{
-        "cd":    	"Change the current directory",
-        "env":   	"List environment variables",
-        "pwd":	 	"Print current working directory",
-		"source":	"Read and execute commands from the filename argument",
-		"mkdir":	"Creates new directory",
-        "exit":  	"Exit the shell",
-        "help":  	"Display this help message",
-        // Add additional commands and descriptions here.
-    }
-    	return builtins.Help(w, commands)
+		commands := map[string]string{
+			"cd":     "Change the current directory",
+			"env":    "List environment variables",
+			"pwd":    "Print current working directory",
+			"source": "Read and execute commands from the filename argument",
+			"mkdir":  "Creates new directory",
+			"sh":     "Invokes default shell",
+			"exit":   "Exit the shell",
+			"help":   "Display this help message",
+			// Add additional commands and descriptions here.
+		}
+		return builtins.Help(w, commands)
 	case "exit":
 		exit <- struct{}{}
 		return nil
