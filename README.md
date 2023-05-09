@@ -5,13 +5,15 @@
 
 
 This project implements five (5) shell builtins (or shell-adjacent) commands in Go, and integrates them into the Go shell.:
-- [ ] sh
-- [ ] help: display the list of commands
+- [x] sh: invoke default shell
+	+ usage: sh
+- [x] help: display the list of commands
 	+ usage: help
-- [ ] source: read and execute command from a file
+- [x] source: read and execute command from a file
 	+ usage: source [filename]
 	+ example: given a file test.txt, type: source test.txt
-- [ ] undecided
+- [x] mkdir: create one or more directories
+	+ usage: mkdir [Directoryname]
 - [ ] undecided
 
  
