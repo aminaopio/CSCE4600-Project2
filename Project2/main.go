@@ -112,7 +112,7 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return nil
 	
 	case "pwd":
-		return printWorkingDirectory(w)
+		return builtins.Pwd()
 
 	}
 	
