@@ -1,14 +1,14 @@
-package builtins
+package builtins 
 import (
 	"fmt"
-	"io"
 	"os"
 )
-func printWorkingDirectory(w io.Writer) error {
+
+func Pwd(args ...string) error {
 	wd, err := os.Getwd()
 	if err != nil {
-		return err
+		return fmt.Errorf("Not working Directory: %v")
 	}
-	_, err = fmt.Fprintln(w, wd)
-	return err
+	fmt.Println(wd)
+	return nil
 }
